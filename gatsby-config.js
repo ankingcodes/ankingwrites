@@ -3,7 +3,7 @@ module.exports = {
     // edit below
     title: `ankingwrites`,
     author: `Ankush Bhardwaj`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
+    description: `@ankingcodes's official blog site`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `ankingcodes`,
