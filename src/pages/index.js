@@ -7,27 +7,30 @@ import Button from "../components/button"
 
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = "Gatsby Starter Personal Website"
-
+    const siteTitle = "ankingwrites"
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
         <h1>
-          Hey people{" "}
+          Hey developers{" "}
           <span role="img" aria-label="wave emoji">
             👋
           </span>
         </h1>
-        <p>Welcome to your new Gatsby website. You are on your home page.</p>
+        <p>Welcome to my blog !</p>
         <p>
-          This starter comes out of the box with styled components and Gatsby's
-          default starter blog running on Netlify CMS.
+          I am Ankush Bhardwaj aka <a href="https://github.com/ankingcodes">
+            @ankingcodes </a>.<br/> In this blog, I shall write about the "hockey stick"
+            growth in my tech career. Currently, I am a Google Summer of Code developer
+            for <a href="https://github.com/chapel">
+            Chapel. </a> I was also the winner of <a href="https://njackwinterofcode.github.io/leaderboard.html">
+            NWOC 2019. </a> I spend my time hacking my way through a variety of self projects ranging from Assemblers,
+            Bootloaders to Full-stack Web projects, anything that would blow up my mind.
+            <br/> I turn into an open source enthusiast past midnight.
         </p>
-        <p>Now go build something great!</p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
         </Link>
