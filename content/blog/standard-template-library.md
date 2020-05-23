@@ -32,7 +32,7 @@ main()
 - `size` : return number of elements in container
 - `max_size` : return max number of elements that array can hold
 - `empty` : returns a bool indicating whether container is empty 
-```
+```cpp
 main()
   array<int,10> a = {1,2,3,4};
   cout<<a.size()<<endl; // 4
@@ -42,7 +42,7 @@ main()
 #### Modifiers 
 - `fill` : sets *val* as the value for all elements in array
 - `swap` : swaps/exchanges the content of 2 arrays or values within array
-```
+```cpp
 main()
   array<int> a = {1,2,3};
   array<int> b = {4,5,6};
@@ -55,13 +55,13 @@ main()
 #### Element access
 - `[]` : used as `a[i]` or `b[0]`
 - `at` : returns a reference to element at position n in the array
-```
+```cpp
 vector<int> a = {1,2,3};
 cout << a.at(2); // 3
 ```
 - `front` : returns reference to first element
 - `back` : returns reference to last element
-```
+```cpp
 cout << a.front() << '\t' << a.back(); // 1 3
 ```
 
