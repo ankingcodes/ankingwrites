@@ -142,3 +142,35 @@ vector<int> b;
 b = a;
 ```
 
+## Deque STL container
+Deque (double-ended queue) are sequence containers with dynamic sizes that can be expanded or contracted on both ends. They provide functionality similar to `vectors` but with efficient insertion and deletion of elements also at beginning , and not only to end. 
+Both vectors and deques provide similar functionality, but they work in different ways: vectors use a single array that is reallocated for growth, the elements of a deque can be scattered in different chunks of storage, with the container keeping the necessary information internally to provide direct access to any of its elements in constant time and with uniform sequential interface. 
+Note :- For operations that involve frequent insertion or removals of elements at positions other than the beginning or end, deques perform worse and have less consistent iterators than *lists* and *forward lists*
+
+### Member Functions : 
+#### Iterators : 
+`begin`, `end`, `rbegin`, `rend`
+#### Capacity : 
+`size`, `max_size`, `resize`, `empty`, `shrink_to_fit`
+#### Element access : 
+`[]`, `at`, `front`, `back`
+#### Modifiers : 
+`assign`, `push_back`, `push_front`, `pop_back`, `pop_front`, `insert`, `erase`, `swap`, `clear`.
+```cpp
+deque<int> a(n) = {1,2,3,4};
+a.push_front(0); // 0,1,2,3,4
+a.push_back(5); // 0,1,2,3,4,5
+while(!a.empty()){
+  a.pop_front();
+  a.pop_back();
+}
+/*
+Popping occured as follows : 
+0 1 2 3 4 5 
+1 2 3 4
+2 3
+NULL
+*/
+```
+
+
