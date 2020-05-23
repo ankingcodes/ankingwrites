@@ -65,3 +65,80 @@ cout << a.at(2); // 3
 cout << a.front() << '\t' << a.back(); // 1 3
 ```
 
+## Vector STL container
+These are arrays that can change in size. They are contiguous storage locations for their elements, which means that their elements can be accessed using offsets on regular pointers to its elements, and just as efficiently as in arrays. However, size can change dynamically, with their storage being handled automatically by the container.
+Vectors use array that may need to be dynamically reallocated to grow in size when new elements are inserted, which implies allocating a new array and moving all elements to it. 
+Compared to arrays, vectors consume more memory to manage storage dynamically. The properties of this container are - Sequence, Dynamic arrays and allocator aware.
+
+### Member functions 
+#### Iterators: 
+- `begin`: return iterator to beginning
+- `end` : return iterator to end
+- `rbegin` : return reverse iterator to reverse beginning
+- `rend` : return reverse iterator to reverse end
+
+#### Capacity: 
+- `size` : return number of elements in the vector
+- `max_size` : return max number of elements that vector can hold
+- `resize` : resizes the container so that it contains n elements only.(*saves space*) `resize` reduces the `size` of a vector. It has an argument n, which is the number of elements the vector should contain. We can either expand or reduce the container to n elements, by filling or removing elements respectively.
+- `capacity` : returns size of storage space currently allocated
+- `empty` : returns a boolean whether the vector is empty
+- `shrink_to_fit`: similar to `resize` but applies on `capacity` or allocated storage
+```cpp
+main()
+  vector<int> v(100);
+  for(int i=1;i<10;i++) v.push_back(i);
+  cout << v.size() << endl; // 110
+  cout << v.max_size() << endl; // 1073741823
+  cout << v.capacity() << endl; // 200
+  cout << v.empty() ? "Empty" : "not empty" << endl;
+  v.resize(10);
+  cout << v.size() << endl; // 10
+  v.shrink_to_fit(); 
+  cout << v.capacity() << endl; // 10
+```
+#### Element access: 
+- [] : used as v[i] 
+- `at` : gets element at an index.
+- `front` : returns first element of vector
+- `back` : returns last element of vector
+
+#### Modifiers: 
+- `assign`: useful in copying from one vector to another. 
+```cpp
+vector<int> a = {1,2,3};
+vector<int> b; 
+b.assign(a.begin(), a.end());
+```
+- `push_back`: adds a new element to the end of vector, after its current last element.
+- `pop_back`: removes last element from the vector
+```cpp
+vector<int> a(n); 
+for(auto &i : a) cin>>i;
+while(!a.empty()){
+  cout<<a.back()<<endl;
+  a.pop_back();
+}
+```
+- `insert`: inserting elements at a specified *position*. That position is denoted by *iterators*.
+```cpp
+vector<int> a = {2,10};
+a.insert(a.begin()+2, 8); // 2,10,8
+vector<int> b = {1,2,3};
+b.insert(b.begin()+3, a.begin(), a.end()); // 1,2,3,2,10,8
+```
+- `erase` : removes either a single element at a *position* or a range of elements. 
+```cpp
+b.erase(b.begin()); // 2,3,2,10,8
+b.erase(b.begin(), b.begin()+2); // 2,10,8
+```
+- `swap` : exchanges content of the container
+- `clear` : removes all elements from the vector
+
+`Note:` We can also assign a vector to another vector as follows: 
+```cpp
+vector<int> a = {1,2,3};
+vector<int> b;
+b = a;
+```
+
