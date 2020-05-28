@@ -173,4 +173,90 @@ NULL
 */
 ```
 
+## List STL container 
+Lists are sequence containers that allow constant time insert and erase operations anywhere within the sequence, and iteration in both directions. Lists are basically doubly-linked lists. The difference between `list` and `forward_list` is that `forward_list` objects are single linked lists and can only be iterated forwards.
+Compared to other sequence containers, lists perform better in inserting, extracting and moving elements in any position within the container.
+The major drawback of `list` and `forward_lists` is that they lack direct access to the elements by their position. They also consume some extra memory to keep the linking information associated to each element.
+
+### Member Functions 
+#### Iterators: 
+`begin`, `end`, `rbegin`, `rend`
+
+#### Capacity: 
+`empty`, `size`, `max_size`
+
+#### Element access: 
+- `first` : returns first element of the list
+- `back` : returns last element of the list
+
+#### Modifiers: 
+- `assign` : assign new content to container, replacing its current contents and modifying its size.
+```cpp
+list<int> a;
+a.assign(InputIterator first, InputIterator second);
+a.assign(size_type n, const value_type& val);
+```
+- `push_front`: inserts an element at beginning
+- `pop_front`: delete first element
+- `push_back`: inserts an element at the end 
+- `pop_back`: delete last element
+- `emplace_front`: construct and insert element at the end
+- `insert`: container is extended by inserting new elements at the specified position
+- `erase`: removes from the list container either a single element (*position*) or a range of elements(*[first,last]*)
+```cpp
+list<int> a;
+for(int i=0;i<=5;i++) a.push_back(i);
+a.insert(a.begin()+3, 2, 20); // insert two 20 at position 3
+list<int> b(19,29); 
+a.insert(a.begin(), b.begin(), b.end()); // insert b in a
+a.erase(a.begin()+2); // erase element at 2
+a.erase(a.begin()+2, a.end()); // erase elements from 2nd position to end
+```
+- `swap`: exchanges contents of the container
+- `resize`: resizes container so that it contains n elements only
+- `clear`: removes all elements from list container
+
+#### Operations:
+- `splice`: transfers elements from x into the container, inserting them at position
+The first version(1) transfers all elements into the container
+The second version(2) transfers only element pointed from x into container
+The third version(3) transfers the range `[first, last)` from x into container 
+```cpp
+list<int> a; 
+for(int i=1;i<=4;i++) a.push_back(i); 
+list<int> b; 
+for(int i=1;i<=3;i++) b.push_back(i*10);
+a.splice(a.begin(), b); // (1) 
+b.splice(b.begin(), a, a.end()-2); // (2)
+b.splice(b.begin(), a, a.begin()+3, a.end()); // (3)
+```
+- `remove`: remove from container all elements that match to *val*. Unlike *erase* which removes elements by position, this function removes elements by their value. 
+```cpp
+a.remove(3); 
+```
+- `remove_if`: removes element from container for which predicate *pred* returns true.
+```cpp
+bool is_odd(int x){
+  if(x&1) return true;
+  else return false;
+}
+
+a.remove_if(is_odd());
+```
+- `unique`: this function without parameters removes all but the fitst element from every consecutive group of equals in the container. Notice that an element is only removed from the list container if it compares equal to the element immediately preceding it. Thus, this function is especially useful for sorted lists. 
+The function accepts a single argument which is a predicate or condition on which uniqueness is judged.
+```cpp
+a.unique();
+```
+- `merge` : merge sorted lists. Merges x into the list by transferring all of its elements at their respective ordered positions into the container. This effectively removes all the elements in x and inserts them into their ordered position within the container. The operation is performed  without constructing nor destroying any element. 
+- `sort` : sorts the elements in the list 
+```cpp
+a.sort(); b.sort();
+a.merge(b);
+```
+- `reverse` : reverses the order of the elements in the list container. 
+```cpp
+a.reverse();
+```
+
 
