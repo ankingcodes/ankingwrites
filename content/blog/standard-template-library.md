@@ -259,4 +259,45 @@ a.merge(b);
 a.reverse();
 ```
 
+## Set STL container
+Sets are containers that store unique elements in a specific order. Each value in the set should be unique. They can be inserted and removed but cannot be modified. Sets are typically implemented as binary search trees.
+### Member functions : 
+#### Iterators: 
+`begin`, `end`, `rbegin`, `rend`
+
+#### Capacity: 
+`empty`, `size`, `max_size`
+
+#### Modifiers : 
+`insert`: extends the container by inserting new elements, returns a pair where pair::first points to either the newly inserted element is already in set. The pair::second element in the pair is set to true if a new element was inserted or false if equivalent element already exists.
+```cpp
+set<int> a; 
+a.insert(x);
+```
+- `erase`: removes from the set container a single element or a range of elements
+- `swap` : exchanges the contents of set containers
+- `clear` : removes all elements from the set container
+
+#### Operations : 
+- `find` : searches the container for an element equivalent to *val*
+- `count` : returns the number of occurences of *val* in container
+- `lower_bound` :  returns an iterator pointing to the first element in the container which is not considered to go before *val*(either equivalent or goes after)
+- `upper_bound` :  returns an iterator pointing to the first element in the container which is considered to go after *val*
+- `equal_range` : returns the bounds of a range that includes all the elements in the container that are equivalent to *val*
+```cpp 
+set<int> a;
+for(int i=0;i<10;i++) a.insert(i);
+auto it = a.find(3);
+cout << a.count(3);
+auto it_low = a.lower_bound(1);
+auto it_up = a.upper_bound(2);
+set<int> b; 
+for(int i=1;i<=5;i++) b.insert(i*10);
+pair<set<int>, set<int>> ret; 
+ret = b.equal_range(30);
+cout << *ret.first << endl; // 30 - lower
+cout << *ret.second << endl; // 40 - upper
+```
+
+
 
