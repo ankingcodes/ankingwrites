@@ -298,6 +298,89 @@ ret = b.equal_range(30);
 cout << *ret.first << endl; // 30 - lower
 cout << *ret.second << endl; // 40 - upper
 ```
+## Multi-Set STL container
+Multisets are containers that store elements following a specific order and where multiple elements can have equivalent values. In multiset, elements can be added or removed but cannot be modified. They are similar to javascript objects, and exist as key value pairs. 
+
+```cpp
+multiset<int> a;
+```
+### Member function
+#### Iterators: 
+`begin`, `end`, `rbegin`, `rend`
+
+#### Capacity:
+`empty`, `size`, `max_size`
+
+#### Modifiers:
+`insert`, `erase`, `swap`, `clear`
+
+#### Observers:
+`key_comp`, `value_comp`
+
+#### Operations: 
+`find`, `count`, `lower_bound`, `upper_bound`, `equal_range`
+`Note : All functions are similar to that of set`
+
+## Map STL container
+Maps are associative containers that store elements formed by a combination of a key value and a mapped value, following a specific order. Maps are implemented as binary search trees. In a map, the key values are generally used to sort and uniquely identify the elements, while the mapped values store the content associated with the key. The types of key and mapped value may differ.
+The mapped values in a map can be accessed directly by their corresponding key using the bracket operator.
+### Member functions:
+#### Iterators : 
+`begin`, `end`, `rbegin`, `rend`
+#### Capacity :
+`empty`, `size`, `max_size`
+#### Element access :
+- `[]`: `map[k]`, if k matches the key of an element in the container, the function returns a reference to its mapped value. If k does not match the key of any element in the container, the function inserts a new element with that key and returns a reference to its mapped value. 
+```cpp
+map<int, string> a;
+a[0] = "ankush";
+a[1] = "bhardwaj";
+cout << a[0] << ' ' << a[1] << endl;
+```
+- `at`: returns a reference to the mapped value of the element identified with key k. If k does not match the key of any element in the container, the function throws an `out_of_range` exception.
+```cpp
+map<string, int> movie_ticket = {
+  { "3Idiots",0 },
+  { "Baby", 0 },
+  { "JollyLLB", 0 }
+};
+movie_ticket.at("3Idiots") = 350;
+movie_ticket.at("Baby") = 400;
+movie_ticket.at("JollyLLB") = 250;
+for( auto x : movie_ticket) 
+  cout << x.first << ' ' << x.second << endl;
+```
+#### Modifiers 
+`insert`, `erase`, `swap`, `clear`
+
+#### Observers 
+`key_comp`, `value_comp`
+
+#### Operations 
+`find`, `count`, `lower_bound`, `upper_bound`, `equal_range`
+
+## Multimap STL container
+These are associative containers that store elements formed by a combination of a key value and a mapped value, following a specific order, and where multiple elements can have equivalent keys.
+In a multimap, the key values are generally used to sort and uniquely identify the elements, while the mapped values store the content associated to this key. The types of key and mapped value may differ. They are generally implemented as binary search trees.
+```cpp
+multimap<char, int> a;
+```
+### Member function 
+#### Iterators
+`begin`, `end`, `rbegin`, `rend`
+
+#### Capacity 
+`empty`, `size`, `max_size`
+
+#### Modifiers 
+`insert`, `erase`, `swap`, `clear`
+
+#### Observers
+`key_comp`, `value_comp`
+
+#### Operations
+`find`, `count`, `lower_bound`, `upper_bound`, `equal_range`
+
 
 
 
