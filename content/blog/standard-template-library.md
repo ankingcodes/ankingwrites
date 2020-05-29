@@ -382,5 +382,162 @@ multimap<char, int> a;
 `find`, `count`, `lower_bound`, `upper_bound`, `equal_range`
 
 
+## String Class
+`<string>` header introduces string types, character traits and a set of converting functions
+### Functions 
+#### Convert from Strings 
+- `stoi` : converts a string to an integer of any format
+```cpp
+string str = "2001";
+string::size_type sz;
+int decimal = stoi(str,sz);
+int hex = stoi(str, nullptr, 16);
+int binary = stoi(str, nullptr, 2);
+int auto = stoi(str, nullptr, 0);
+```
+- `stol` : convert string to long int
+- `stoul` : convert string to unsigned integer
+- `stoll` : convert string to long long
+- `stoull` : convert string to unsigned long long 
+- `stof` : convert string to float
+- `stod` : convert string to double
+- `stold` : convert string to long double
+
+#### Convert to strings 
+- `to_string` : Convert numerical value to string
+```cpp
+int x = 10;
+string x_str = to_string(x);
+cout << x_str << endl;
+```
+#### Range access 
+- `begin` : iterator to beginning of string
+- `end` : iterator to end of string
+
+Strings are objects that represent sequences of characters. 
+### Member Functions 
+#### Iterators
+- `begin` : return iterator to beginning
+- `end`: return iterator to end 
+- `rbegin` : return reverse iterator to reverse beginning
+- `rend` : return reverse iterator to reverse end
+#### Capacity 
+- `size`, `length` : returns length of the string
+- `max_size` : returns the max length the string can reach
+- `resize` : resize the string to a length of n characters
+- `capacity` : returns the size of the storage space currently allocated for the string
+- `reserve` : requests a change in the storage capacity
+- `clear` : erase contents of the string
+- `empty` : check if string is empty
+- `shrink_to_fit`: shrinks the string to its current length 
+```cpp
+string str = "Test str";
+//[ T, e, s, t, ' ', s, t, r, \0 ]
+str.size(); // 11
+str.length(); // 11
+str.capacity(); // 15
+str.max_size(); // 4294967291
+str.resize(str.end()+2, '+'); // Test str++
+str.resize(4); // Test
+str.clear(); // ""
+str.empty(); // true
+str.shrink_to_fit(); // 0
+```
+#### Element access
+- `operator []` : returns a references to the char at pos in the string
+- `at` : returns a references to the char at pos in the string
+- `back` : returns a reference to last char of string
+- `front` : returns a reference to first char of string
+```cpp
+string s = "test str";
+for(int i=0;i<s.length();i++) 
+  cout << s[i];
+for(int i=0;i<s.length();i++)
+  cout << s.at(i);
+cout << s.back(); // r
+cout << s.front(); // t
+s.front() = 'T';
+cout << s ; // Test str
+```
+#### Modifiers 
+- `operator+=` : appends to string
+- `append` : appending characters at the end of its current value.
+- `push_back` : appends character c to the end of string, increasing its length by one
+- `assign` : assign a new value to the string, replacing its current contents
+- `insert` : inserts additional characters into the string right before the character indicated by pos
+```cpp
+string str = "to be question";
+string str2 = "the ";
+// inserts a copy of str
+str.insert(6, str2); //"to be (the ) question"
+// inserts a copy of substring of str
+str.insert(6, str3, 3, 4); // "to be (not) the question "
+// inserts n consecutive copies of char c (fill)
+str.insert(str.end(),3,'.'); // "to be not the question ..."
+// inserts a single char c
+str.insert(str.begin()+5, ','); // "to be, not the question..."
+// range - inserts a copy of the sequence of characters in range [first, last) in same order
+string str3 = "or not to be";
+str.insert(str.begin(), str3.begin(), str3.end()); // "or not to be to be, not the question..."
+```
+- `erase` : erase part of the string, reducing its length
+```cpp
+string str = "This is an example sentence.";
+str.erase(10, 8); // This is an sentence.
+str.erase(str.begin()+9); // This is a sentence.
+str.erase(str.begin()+5, str.end()-9); // This sentence.
+```
+- `replace` : replaces a portion of the string that begins at a pos or range.
+```cpp
+string str = "this is a test string";
+string str2 = "That";
+str.replace({pos of curr string},{string that will replace curr string});
+str.replace(str.begin(), str.begin()+4, str2.begin(), str2.end());
+// That is a test string
+```
+- `swap` : swap contents of string
+- `pop_back` : erases last character of the string
+```cpp
+string str="Hello";
+// append
+str.append("World"); // Hello World
+str + "world"; // Hello world
+str.pop_back(); // Hello worl
+```
+#### String operations: 
+- `data`
+- `copy`
+- `find`: searches the string for first occurrence of sequence
+```cpp
+string str = "I am ankingcodes";
+string x = "king";
+size_t found = str.find(x); // 8
+```
+- `rfind`: searches the string for last occurrence of sequence 
+```cpp
+string str = "The sixth sick sheik's sixth sheep's sick.";
+string x = "sixth";
+size_t found = str.rfind(x); // 23
+```
+- `find_first_of`
+- `find_last_of`
+- `find_first_not_of`
+- `find_last_not_of`
+- `substr`: The substring is the portion of the object that starts at character position *pos* and spans *len* characters.
+```cpp
+string s = "Geeks";
+string r = s.substr(1,3);
+cout << r << endl; // eek
+// copy substring after pos
+string x = "dog:cat";
+int p = s.find(":");
+string y = x.substr(p+1);
+cout << y << endl; // cat 
+```
+- `compare`: The compared string is the value of the string object or -if the signature used has a pos and a len parameters- the substring that begins at its character in position pos and spans len characters.
+```cpp
+string x = "abc", y = "xyz";
+x.compare(y); // <0 {0, <0, >0}
+```
 
 
