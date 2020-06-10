@@ -1,7 +1,7 @@
 ---
 path: gsoc_blog_1
 date: 2020-06-10T04:25:32.767Z
-title: 'GSoC[''chapel''] = @ankingcodes'
+title: 'GSoC[chapel].insert (@ankingcodes)'
 description: A brief recap of pre-GSoC work and Community Bonding Period
 ---
 ## In real open source, you have the right to control your own destiny
