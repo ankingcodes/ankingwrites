@@ -33,7 +33,7 @@ Mostly, students get a head start on their project during the community bonding 
 
 After some design discussions with Ben, and a PR, Spack now installs within 9-10 seconds which was a very shocking outcome for me. The trick was that we did a "shallow clone" of the Spack repository, which would get only the latest revision of the Spack repository stripping off the entire history of commits. 
 
-Also, I got to attend CHUIW 2020, which was fortunately online due to Covid-19 situation. Surprisingly, my work was also recognized by [Brad Chamberlain](https://www.github.com/bradcray)(core designer, creator of Chapel) during his introductory talk.
+Also, I got to attend CHIUW 2020, which was fortunately online due to Covid-19 situation. Surprisingly, my work was also recognized by [Brad Chamberlain](https://www.github.com/bradcray)(core designer, creator of Chapel) during his introductory talk.
 
 ## Conclusion
 I am grateful to have been given this opportunity to work with Chapel in Google Summer of Code 2020. I congratulate my fellow GSoCers [Rahul](https://www.github.com/rahulghangas), [Aniket](https://www.github.com/Aniket21mathur) and [Yujia](https://www.github.com/Rapiz1) for getting selected, and wish them good luck to deliver the tasks proposed by them successfully. Most importantly, I hope everyone grow their skills during the summer, and continue to contribute to Chapel post GSoC. 
