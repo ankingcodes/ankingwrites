@@ -13,7 +13,7 @@ Arrays offer contiguous storage, allowing constant time random access to element
 - `begin`: return iterator to beginning
 - `end` : return iterator to end
 ```cpp
-main()
+
   ll n; cin>>n;
   array<int, n> a;
   // or 
@@ -33,7 +33,7 @@ main()
 - `max_size` : return max number of elements that array can hold
 - `empty` : returns a bool indicating whether container is empty 
 ```cpp
-main()
+
   array<int,10> a = {1,2,3,4};
   cout<<a.size()<<endl; // 4
   cout<<a.max_size()<<endl; // 10
@@ -43,7 +43,7 @@ main()
 - `fill` : sets *val* as the value for all elements in array
 - `swap` : swaps/exchanges the content of 2 arrays or values within array
 ```cpp
-main()
+
   array<int> a = {1,2,3};
   array<int> b = {4,5,6};
   a.swap(b);
@@ -85,7 +85,7 @@ Compared to arrays, vectors consume more memory to manage storage dynamically. T
 - `empty` : returns a boolean whether the vector is empty
 - `shrink_to_fit`: similar to `resize` but applies on `capacity` or allocated storage
 ```cpp
-main()
+
   vector<int> v(100);
   for(int i=1;i<10;i++) v.push_back(i);
   cout << v.size() << endl; // 110
