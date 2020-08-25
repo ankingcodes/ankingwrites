@@ -9,8 +9,8 @@ description: Report for project "Improve Mason Package Manager"
 ## Project:[ Improve Mason Package Manager](https://summerofcode.withgoogle.com/projects/#6454194829000704)
 
 ### Organisation: [Chapel Language](https://chapel-lang.org/)
-<b> Ankush Bhardwaj </b> </br>
-Email: ankush.bhardwaj0@gmail.com </br>
+<b> Ankush Bhardwaj </b> <br>
+Email: ankush.bhardwaj0@gmail.com <br>
 Github: [@ankingcodes](https://github.com/ankingcodes)
 
 ### Abstract
@@ -28,5 +28,5 @@ A total of <b>[22](https://github.com/chapel-lang/chapel/issues?q=+is%3Aissue+au
 ![asdwq](https://user-images.githubusercontent.com/40923324/91219836-eab2e980-e738-11ea-9c14-7faa4ea06162.PNG)
 
 - [Improve `mason external --setup`](https://github.com/chapel-lang/chapel/pull/15641) : faster setup of the spack registry by shallow cloning of the spack repository. 
-- [
+
   
