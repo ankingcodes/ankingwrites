@@ -32,13 +32,17 @@ A total of **[22](https://github.com/chapel-lang/chapel/issues?q=+is%3Aissue+aut
 
 - [Improve "`mason external --setup`"](https://github.com/chapel-lang/chapel/pull/15641) : faster setup of the spack registry by shallow cloning of the spack repository. 
 
-- Interactive mode for mason init & mason new : Adds interactive mode for `mason init` & `mason new`, also, adds a `mason new -d` & `mason init -d` for the default behavior. 
+- Interactive mode for mason init & mason new : Adds interactive mode for `mason init` and `mason new`, also, adds an option `mason init -d` for the default behavior. 
   - [interactive for init](https://github.com/chapel-lang/chapel/pull/15814)
   - [Interactive mode for mason new](https://github.com/chapel-lang/chapel/pull/15748)
 
 - [Additional check for "`make mason`" in smokeTest](https://github.com/chapel-lang/chapel/pull/15797) : This PR adds `make mason` to Chapel's CI testing script to track changes made to Mason.
 
-- Improvements to user experience while publishing mason packages to mason-registry : Streamlines creation of local-registry by adding a `--create-registry` option to `mason publish`. Adds checks for `test/`, `examples/` and important fields in manifest file such as `license`. 
+- Improvements to user experience while publishing mason packages to mason-registry : Streamlines creation of local-registry by adding a `--create-registry` option to `mason publish`. Adds checks for `test/`, `examples/`, important fields in manifest file such as `license`, git tag versioning, namespace collisions and manifest file formatting. 
+  - [Improved mason publish (#15862)](https://github.com/chapel-lang/chapel/pull/15862)
+  - [Add License field to manifest file](https://github.com/chapel-lang/chapel/pull/15924)
+  - [New checks for "`mason publish --ci-check`"](https://github.com/chapel-lang/chapel/pull/15970)
+  - ["`mason publish --create-registry`"](https://github.com/chapel-lang/chapel/pull/16220)
 
 
 
