@@ -25,10 +25,65 @@ This project aims to improve the user experience of Mason by solving known bugs,
 features, refactoring current features while writing tests and documentation
 
 ### Outcome & Code contribution
-A total of **[22](https://github.com/chapel-lang/chapel/issues?q=+is%3Aissue+author%3Aankingcodes+) issues** and **[38](https://github.com/chapel-lang/chapel/pulls?q=+is%3Apr+author%3Aankingcodes+) pull requests** was made overall, with **[7](https://github.com/chapel-lang/chapel/issues?q=is%3Aissue+author%3Aankingcodes+label%3A%22gsoc%3A+mason%22) issues** and **[23](https://github.com/chapel-lang/chapel/pulls?q=+is%3Apr+label%3A%22gsoc%3A+mason%22+) pull requests** being within the GSoC coding period. 
+A total of **[22](https://github.com/chapel-lang/chapel/issues?q=+is%3Aissue+author%3Aankingcodes+) issues** and **[44](https://github.com/chapel-lang/chapel/pulls?q=+is%3Apr+author%3Aankingcodes+) pull requests** was made overall, with **[7](https://github.com/chapel-lang/chapel/issues?q=is%3Aissue+author%3Aankingcodes+label%3A%22gsoc%3A+mason%22) issues** and **[29](https://github.com/chapel-lang/chapel/pulls?q=+is%3Apr+label%3A%22gsoc%3A+mason%22+) pull requests**(**6** from [mason-registry](https://github.com/chapel-lang/mason-registry/pulls?q=is%3Apr+author%3Aankingcodes+is%3Aclosed)) within the GSoC coding period. 
 
-![asdwq](https://user-images.githubusercontent.com/40923324/91219836-eab2e980-e738-11ea-9c14-7faa4ea06162.PNG)
+![codegsoc](https://user-images.githubusercontent.com/40923324/91351008-26b38080-e805-11ea-94f8-f93eb2723605.PNG)
 
-- [Improve `mason external --setup`](https://github.com/chapel-lang/chapel/pull/15641) : faster setup of the spack registry by shallow cloning of the spack repository. 
+
+- [Improve "`mason external --setup`"](https://github.com/chapel-lang/chapel/pull/15641) : faster setup of the spack registry by shallow cloning of the spack repository. 
+
+- Interactive mode for mason init & mason new : Adds interactive mode for `mason init` & `mason new`, also, adds a `mason new -d` & `mason init -d` for the default behavior. 
+  - [interactive for init](https://github.com/chapel-lang/chapel/pull/15814)
+  - [Interactive mode for mason new](https://github.com/chapel-lang/chapel/pull/15748)
+
+- [Additional check for "`make mason`" in smokeTest](https://github.com/chapel-lang/chapel/pull/15797) : This PR adds `make mason` to Chapel's CI testing script to track changes made to Mason.
+
+- Improvements to user experience while publishing mason packages to mason-registry : Streamlines creation of local-registry by adding a `--create-registry` option to `mason publish`. Adds checks for `test/`, `examples/` and important fields in manifest file such as `license`. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
