@@ -15,6 +15,9 @@ Email: ankush.bhardwaj0@gmail.com
 
 Github: [@ankingcodes](https://github.com/ankingcodes)
 
+### Mentors:
+[Ben Albrecht](https://github.com/ben-albrecht), [Sam Partee](https://github.com/spartee), [Krishna Kumar Dey](https://github.com/krishnadey30)
+
 ### Abstract
 A package manager is a programming language’s tool to create environments for projects and easily
 use external dependencies. It allows users or developers to package their projects and publish them
@@ -185,10 +188,45 @@ Average Time (ms/N): 0.56
 
 ============================================
 ```
+- Toml module redesign: Current Toml implementation cannot differentiate between quotes present in Toml table headers and in key-value pairs. Also, periods present inside quotes of a Toml headers is treated as same as the periods outside the quotes. For example, consider the following toml :
+```toml 
+[LocalAtomics."0.1.0"] 
+score = "5"
+```
+Here, during parsing of TOML file, the `"5"` is treated same as that of `"0.1.0"` whereas one of them is a  value to a key `score ` and the other is part of a table header. This is due to the use of regex during Toml parsing. 
 
+Additionally, after parsing the table header, the subtables are as follows: 
+```toml 
+[LocalAtomics]
+[LocalAtomics."0]
+[LocalAtomics."0.1]
+[LocalAtomics."0.1.0"]
+score = "5"
+```
+instead of 
+```toml 
+[LocalAtomics]
+[LocalAtomics."0.1.0"]
+score = "5"
+```
+This is also due to the use of regex while parsing. The regex cannot differentiate between periods inside & outside of quotes.
 
+[#16141](https://github.com/chapel-lang/chapel/pull/16141) was an effort to fix this issue but we found larger design challenges. For example, 
+if we create an additional regex to parse `[LocalAtomics."0.1.0"]` entirely as `LocalAtomics."0.1.0"` , then the regex would require look-ahead and look-behind features for capturing the value after and behind of opening and closing square brackets which is not yet supported by our Regex module. Another issue would be that the regex would treat table header and array of elements as same. 
+For example, 
+```toml 
+[LocalAtomics."0.1.0"]    # regex would capture LocalAtomics."0.1.0" here
+tests = [ a.chpl, b.chpl, c.chpl ]   # regex would capture a.chpl, b.chpl, c.chpl here
+```
+Therefore, we require to rethink the design of Toml module so that we can fix these errors and also support features that are yet to be implemented ( Array of Tables ) 
 
+### Related Documentation: 
+- [** Mason **](https://chapel-lang.org/docs/tools/mason/mason.html)
+- [** UnitTest framework **](https://chapel-lang.org/docs/modules/packages/UnitTest.html)
 
+### Further Work
+- Lead design discussion for [Toml module redesign issue](https://github.com/chapel-lang/chapel/issues/16254)
+- Additional features for `mason bench`: Current mason bench design is simple and lightweight. An extension of `mason bench` could be to support benchmarking test function recognition using primitives, defined in the compiler. Also, we could also support additional metrics like memory allocation for `mason bench`. 
 
 
 
